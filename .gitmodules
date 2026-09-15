@@ -1,0 +1,12 @@
+[submodule "soma-io"]
+	path = soma-io
+	url = https://github.com/brainvisa/soma-io
+[submodule "aims-free"]
+	path = aims-free
+	url = https://github.com/brainvisa/aims-free
+[submodule "aims-gpl"]
+	path = aims-gpl
+	url = https://github.com/brainvisa/aims-gpl
+[submodule "brainvisa-share"]
+	path = brainvisa-share
+	url = https://github.com/brainvisa/brainvisa-share

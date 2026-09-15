@@ -1,0 +1,40 @@
+[workspace]
+name = "soma"
+channels = ["conda-forge", "https://brainvisa.info/neuro-forge", "file:///home/yann/dev/brainvisa-cmake/channel"]
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[dependencies]
+python = "*"
+
+# Build tools
+cmake = ">=3.28"
+clang = "*"
+clangxx = "*"
+lld = "*"
+libcxx = "*"
+make = "*"
+gfortran = "*"
+pkgconfig = "*"
+doxygen = "*"
+git = "*"
+
+# Core dependencies for soma-io
+"sigcpp-2.0" = "*"
+libblitz = "*"
+libboost-devel = "*"
+numpy = "<2"
+pyyaml = "*"
+libminc = "*"
+openjpeg = "*"
+libxml2-devel = "*"
+zlib = "*"
+libtiff = "*"
+jasper = "*"
+dcmtk = ">=3.7"
+soma-openslide = "*"
+
+# Optional dependencies
+graphviz = "*"
+ipython = ">=9.17.1,<10"
+brainvisa-cmake = ">=0.1.0,<0.2"
