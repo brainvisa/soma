@@ -1,12 +1,13 @@
-cmake_minimum_required(VERSION 4.4)
+cmake_minimum_required(VERSION 3.8)
+project (soma LANGUAGES C CXX Fortran)
+set( NO_BV_MAKER TRUE)
+set(CMAKE_MODULE_PATH "$ENV{PIXI_PROJECT_ROOT}/lib/cmake/brainvisa-cmake:$ENV{PIXI_PROJECT_ROOT}/lib/cmake/brainvisa-cmake/modules" ${CMAKE_MODULE_PATH})
+find_package( brainvisa-cmake REQUIRED )
 
-# Nom du projet principal
-project(soma VERSION 6.0.19 LANGUAGES C CXX Fortran)
+BRAINVISA_PROJECT()
+enable_testing()
 
-# Configuration générale
-set(CMAKE_MODULE_PATH "$ENV{PIXI_PROJECT_ROOT}/lib/cmake/brainvisa-cmake" ${CMAKE_MODULE_PATH})
-
-find_package(brainvisa-cmake REQUIRED)
+set(DESIRED_QT_VERSION 5)
 
 add_subdirectory(brainvisa-share)
 add_subdirectory(soma-io)

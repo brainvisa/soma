@@ -16,6 +16,7 @@ libcxx = "*"
 make = "*"
 gfortran = "*"
 pkgconfig = "*"
+libtirpc = "*" # Required to find pkgconfig in CMake
 doxygen = "*"
 git = "*"
 
@@ -33,6 +34,10 @@ libtiff = "*"
 jasper = "*"
 dcmtk = ">=3.7"
 soma-openslide = "*"
+pyqtwebkit = "*"
+qtconsole = "*"
+pyqt = "*"
+pyqtwebengine = "*"
 
 # Optional dependencies
 graphviz = "*"
