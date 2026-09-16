@@ -2,12 +2,16 @@ cmake_minimum_required(VERSION 3.12)
 project (soma LANGUAGES C CXX Fortran)
 set( BRAINVISA_BVMAKER FALSE )
 set(CMAKE_MODULE_PATH "$ENV{PIXI_PROJECT_ROOT}/lib/cmake/brainvisa-cmake:$ENV{PIXI_PROJECT_ROOT}/lib/cmake/brainvisa-cmake/modules" ${CMAKE_MODULE_PATH})
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+endif()
 
 set(DESIRED_QT_VERSION 5)
 set(DESIRED_SIP_VERSION 6)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_PREPROCESSOR "${_toolchain_prefix}cpp -C" CACHE STRING "C preprocessor command to use" )
+set( CMAKE_CXX_DEFINES "${CMAKE_CXX_DEFINES} -Wold-style-definition -Winconsistent-missing-override")
 
 find_package( brainvisa-cmake REQUIRED )
 BRAINVISA_PROJECT()
@@ -64,14 +68,15 @@ find_package( EXPAT )
 find_package( ZLIB )
 find_package( LibKDTree QUIET )
 
-
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/soma-config.cmake.in" "${CMAKE_BINARY_DIR}/cmake/soma-config.cmake")
+set(SOMA_IS_BEING_COMPILED TRUE)
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/soma-config.cmake.in" "${CMAKE_BINARY_DIR}/cmake/soma-config.cmake" @ONLY)
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake/soma-use.cmake.in" "${CMAKE_BINARY_DIR}/cmake/soma-use.cmake" @ONLY)
 # TODO: install cmake/soma-config.cmake
 # TODO: install cmake/soma-use.cmake
 
 include("${CMAKE_BINARY_DIR}/cmake/soma-config.cmake")
 include("${CMAKE_BINARY_DIR}/cmake/soma-use.cmake")
+set(SOMA-IO_LIBRARIES ${SOMA_LIBRARIES})
 
 add_subdirectory(brainvisa-share)
 add_subdirectory(soma-io)
