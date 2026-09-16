@@ -39,7 +39,9 @@ qtconsole = "*"
 pyqt = "*"
 pyqtwebengine = "*"
 
-# Optional dependencies
 graphviz = "*"
-ipython = ">=9.17.1,<10"
-brainvisa-cmake = ">=0.1.0,<0.2"
+sphinx = "*"
+brainvisa-cmake = "*"
+gitpython = "*"
+python-dateutil = "*"
+python-build = "*"
